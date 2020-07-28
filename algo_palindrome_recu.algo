@@ -1,0 +1,26 @@
+FUNCTION palindrome(word : STRING[50], f,e : INTEGER) : BOOLEAN
+
+BEGIN
+    IF (f >= e) THEN
+        RETURN TRUE;
+    ELSE_IF (word[f] = word[e]) THEN
+        RETURN palindrome(word, f+1, e-1);
+    ELSE
+        RETURN FALSE;
+    END_IF
+END
+
+ALGORITHM palindrome_check
+VAR
+    word : STRING[50];
+    check : BOOLEAN;
+BEGIN
+    Write("Write a word to check");
+    Read(word);
+    check := palindrome(word,0,word.length-1);
+    IF (check = TRUE) THEN
+        Write("Word is palindrome");
+    ELSE
+        Write("Word is not palindrome");
+    END_IF
+END
